@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blog - callum smith</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>&lt; callum smith /&gt;</h1>
+        <nav>
+            <a href="index.html">home</a>
+            <a href="blog.html" class="px-4">blog</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>recent posts</h2>
+        <div id="posts-container"></div>
+    </main>
+
+    <footer>
+        © 2025 callum smith
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            const postsContainer = document.getElementById("posts-container");
+            const posts = [
+                { title: "placeholder topic", date: "DD/MM/YYYY", link: "post.html?id=1" },
+                { title: "another placeholder", date: "DD/MM/YYYY", link: "post.html?id=2" }
+            ];
+            posts.forEach(post => {
+                postsContainer.innerHTML += `
+                    <a href="${post.link}" class="post-card">
+                        <h3>${post.title}</h3>
+                        <p>${post.date}</p>
+                    </a>
+                `;
+            });
+        });
+    </script>
+</body>
+</html>

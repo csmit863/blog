@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callum smith</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>&lt; callum smith /&gt;</h1>
+        <nav>
+            <a href="index.html">home</a>
+            <a href="blog.html" class="px-4">blog</a>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <h2 id="post-title"></h2>
+            <p id="post-date"></p>
+            <p id="post-content"></p>
+        </article>
+    </main>
+
+    <footer>
+        © 2025 callum smith
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const postId = urlParams.get("id");
+
+            // fetch from IPFS
+            const posts = {
+                "1": { title: "My First Post", date: "March 25, 2025", content: "This is my first post. Welcome to my blog!" },
+                "2": { title: "Another Interesting Topic", date: "March 20, 2025", content: "Here’s another post about something interesting." }
+            };
+
+            if (posts[postId]) {
+                document.getElementById("post-title").textContent = posts[postId].title;
+                document.getElementById("post-date").textContent = posts[postId].date;
+                document.getElementById("post-content").textContent = posts[postId].content;
+            } else {
+                document.getElementById("post-title").textContent = "Post Not Found";
+                document.getElementById("post-content").textContent = "Sorry, this post doesn't exist.";
+            }
+        });
+    </script>
+</body>
+</html>
